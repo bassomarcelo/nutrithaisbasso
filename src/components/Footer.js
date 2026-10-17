@@ -1,40 +1,110 @@
 import { Link } from "gatsby";
 import React from "react";
-import { Container } from "./common/interface/UI";
+import { ADDRESS, EMAIL, PHONE_DISPLAY, SOCIAL_LINKS, whatsappLink } from "../content/site";
 import "./Footer.css";
 
 export default function Footer() {
-
     return (
-        <footer className="text-center text-lg-start">
-            <div className="container-custom p-5 px-2">
-                <div className="row dark-violet">
-                    <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
-                        <h5 className="text-uppercase">
-                            <b>
-                                <i className="fas me-3 mb-3 fa-map-marked-alt"></i> Onde me encontrar?
-                            </b>
-                        </h5>
-                        <p className="mb-2">Rua Humberto Accorsi, n° 230 - Sala 02</p>
-                        <p className="mb-2">Edifício Rádio Estação, bairro Aurora</p>
-                        <p className="mb-2">CEP 95185-000 - Carlos Barbosa/RS</p>
-                        <br />
-                        <p className="mb-0">
-                            <Link to="/contato">Veja outras formas de contato</Link>
+        <footer className="tb-footer">
+            <div className="container-custom">
+                <div className="tb-footer-top">
+                    <div className="tb-footer-brand">
+                        <Link to="/" aria-label="Página inicial - Thaís Basso">
+                            <img src="/icons/logo-with-name.png" alt="Thaís Basso Nutricionista" />
+                        </Link>
+                        <p>
+                            Nutricionista funcional e comportamental. Acompanhamento nutricional para hábitos reais, sem dieta, sem culpa e sem perfeição.
+                        </p>
+                        <span className="tb-footer-crn">CRN-2: 16231D</span>
+                        <a className="tb-btn tb-btn--green tb-footer-cta" href={whatsappLink()} target="_blank" rel="noreferrer">
+                            <i className="fab fa-whatsapp" aria-hidden="true" />
+                            Falar com a Thaís
+                        </a>
+                    </div>
+
+                    <div className="tb-footer-column">
+                        <h3>Navegue</h3>
+                        <ul>
+                            <li>
+                                <Link to="/">Início</Link>
+                            </li>
+                            <li>
+                                <Link to="/acompanhamento-nutricional">Acompanhamento nutricional</Link>
+                            </li>
+                            <li>
+                                <Link to="/metodo-seja-real-nao-perfeito">Método Seja Real, Não Perfeito</Link>
+                            </li>
+                            <li>
+                                <Link to="/sobre">Sobre a Thaís</Link>
+                            </li>
+                            <li>
+                                <Link to="/blog">Blog</Link>
+                            </li>
+                            <li>
+                                <Link to="/contato">Contato</Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="tb-footer-column">
+                        <h3>Outras formas de começar</h3>
+                        <ul>
+                            <li>
+                                <Link to="/consultoria-nutricional-online">Consultoria Online – 30 dias</Link>
+                            </li>
+                            <li>
+                                <Link to="/desafio-reset-21">Desafio Reset 21</Link>
+                            </li>
+                        </ul>
+                        <div className="tb-footer-social">
+                            {SOCIAL_LINKS.map((social) => (
+                                <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
+                                    <i className={`fab ${social.icon}`} aria-hidden="true" />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="tb-footer-column tb-footer-contact">
+                        <h3>Onde me encontrar</h3>
+                        <p>
+                            {ADDRESS.street}
+                            <br />
+                            {ADDRESS.building}
+                            <br />
+                            {ADDRESS.city}
+                        </p>
+                        <p>
+                            <a href={whatsappLink()} target="_blank" rel="noreferrer">
+                                <i className="fab fa-whatsapp" aria-hidden="true" /> {PHONE_DISPLAY}
+                            </a>
+                        </p>
+                        <p>
+                            <a href={`mailto:${EMAIL}`}>
+                                <i className="far fa-envelope" aria-hidden="true" /> {EMAIL}
+                            </a>
+                        </p>
+                        <p>
+                            <a href={ADDRESS.maps} target="_blank" rel="noreferrer">
+                                <i className="fas fa-map-marker-alt" aria-hidden="true" /> Ver no mapa
+                            </a>
                         </p>
                     </div>
-                    <div className="footerLogo col-lg-6 col-md-12 mb-4 mb-md-0 d-flex justify-content-end align-items-center">
-                        <img src="/icons/logo.png" className="logo" alt="Logo Thaís Basso nutricionista" />
-                    </div>
                 </div>
-            </div>
-            <div className="footerHi p-3">
-                <Container className="d-flex justify-content-between">
+
+                <div className="tb-footer-bottom">
+                    <span>© {new Date().getFullYear()} Thaís Basso. Todos os direitos reservados.</span>
                     <span>
-                        Made with <i className="fas fa-heart heart"></i> by <a target="_blank" href="https://www.instagram.com/lucasschueitzer">Lucas</a> and <a target="_blank" href="https://github.com/marcelobasso">Marcelo</a>
+                        Feito com <i className="fas fa-heart tb-footer-heart" aria-hidden="true" /> por{" "}
+                        <a href="https://www.instagram.com/lucasschueitzer" target="_blank" rel="noreferrer">
+                            Lucas
+                        </a>{" "}
+                        e{" "}
+                        <a href="https://github.com/marcelobasso" target="_blank" rel="noreferrer">
+                            Marcelo
+                        </a>
                     </span>
-                    <span>© All rights are reserved | 2022</span>
-                </Container>
+                </div>
             </div>
         </footer>
     );

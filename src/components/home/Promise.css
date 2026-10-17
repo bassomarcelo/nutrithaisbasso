@@ -1,0 +1,124 @@
+.tb-promise-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: clamp(36px, 6vw, 86px);
+    align-items: center;
+}
+
+.tb-promise-copy h2 {
+    margin-bottom: 0.35em;
+}
+
+.tb-promise-copy .tb-lead {
+    margin-bottom: 18px;
+}
+
+.tb-promise-copy > p {
+    color: var(--tb-muted);
+}
+
+.tb-promise-cycle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 28px 0;
+}
+
+.tb-promise-cycle span {
+    padding: 8px 15px;
+    border: 1px solid rgba(173, 49, 115, 0.25);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--pallete-violet);
+    font-family: var(--second-font);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.tb-promise-cycle i {
+    color: var(--pallete-violet);
+    font-size: 0.62rem;
+    opacity: 0.6;
+}
+
+.tb-promise-cycle i:last-child {
+    color: var(--pallete-red);
+    font-size: 0.8rem;
+}
+
+.tb-promise-quote {
+    margin: 0;
+    padding: 20px 24px;
+    border-left: 4px solid var(--pallete-green);
+    border-radius: 0 var(--tb-radius-sm) var(--tb-radius-sm) 0;
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--pallete-portfolio-first);
+    font-family: var(--second-font);
+    font-size: clamp(1rem, 1.5vw, 1.14rem);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.tb-promise-cards {
+    display: grid;
+    gap: 16px;
+}
+
+.tb-promise-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: clamp(20px, 2.6vw, 28px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--tb-radius);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 16px 38px -34px rgba(71, 45, 101, 0.5);
+    transition: transform var(--tb-transition), box-shadow var(--tb-transition);
+}
+
+.tb-promise-card:nth-child(2) {
+    margin-left: clamp(0px, 3vw, 34px);
+}
+
+.tb-promise-card:nth-child(3) {
+    margin-left: clamp(0px, 6vw, 68px);
+}
+
+.tb-promise-card:hover {
+    box-shadow: var(--tb-shadow-soft);
+    transform: translateY(-4px);
+}
+
+.tb-promise-card .tb-icon-bubble {
+    flex: 0 0 52px;
+    margin-bottom: 0;
+}
+
+.tb-promise-card h3 {
+    margin-bottom: 0.25em;
+    font-family: var(--main-font);
+    font-size: 1.03rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.tb-promise-card p {
+    margin: 0;
+    color: var(--tb-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+@media (max-width: 991px) {
+    .tb-promise-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tb-promise-card:nth-child(2),
+    .tb-promise-card:nth-child(3) {
+        margin-left: 0;
+    }
+}

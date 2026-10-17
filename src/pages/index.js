@@ -1,37 +1,56 @@
-import * as React from "react";
+import React from "react";
 import Layout from "../components/common/Layout";
 import Seo from "../components/common/Seo";
-import Header from "../components/common/Header";
-import AboutMe from "../components/home/AboutMe";
-import Treatment from "../components/home/Treatment";
-import Features from "../components/home/Features";
-import SpecialFeatures from "../components/home/SpecialFeatures";
-import SocialProof from "../components/home/SocialProof";
-import Woman from "../images/undraw/undraw_woman_white.svg";
-import ActionBanner from "../components/common/ActionBanner";
-import Flowery from "../components/home/Flowery";
-import Portfolio from "../components/home/Portfolio";
-import IlustratedMenus from "../components/home/IlustratedMenus";
+import CtaBanner from "../components/common/CtaBanner";
+import Faq from "../components/common/Faq";
+import AboutPreview from "../components/home/AboutPreview";
+import Hero from "../components/home/Hero";
+import MainProduct from "../components/home/MainProduct";
+import MethodSummary from "../components/home/MethodSummary";
+import OtherWays from "../components/home/OtherWays";
+import Promise from "../components/home/Promise";
+import Testimonials from "../components/home/Testimonials";
+import { HOME_FAQ, INSTAGRAM, whatsappLink } from "../content/site";
 
 export default function Home() {
     return (
         <Layout>
-            <Header title="Thaís Basso" subtitle={<>Nutricionista funcional e comportamental<br />CRN-2: 16231D</>} className="home">
-                <div className="d-flex justify-content-center">
-                    <img className="logo-home" src="/icons/logo-with-name.png" alt="Logo Thaís Basso" />
-                </div>
-            </Header>
-            <Flowery />
-            <AboutMe />
-            <Treatment />
-            {/* <IlustratedMenus /> */}
-            {/* <Features /> */}
-            {/* <Portfolio /> */}
-            <SpecialFeatures />
-            <SocialProof />
-            <ActionBanner text="Venha comigo desvendar uma forma mais saudável de se alimentar" image={<Woman />} />
+            <Hero />
+            <Promise />
+            <MethodSummary />
+            <MainProduct />
+            <OtherWays />
+            <Testimonials />
+            <AboutPreview />
+            <Faq items={HOME_FAQ} title="Perguntas frequentes" subtitle="Se a sua dúvida não estiver aqui, me chame no WhatsApp. Será um prazer conversar." />
+
+            <CtaBanner
+                eyebrow="Vamos começar?"
+                title="Seu próximo passo pode ser mais leve"
+                text="Me conte o que você está buscando. Vamos encontrar juntas um caminho possível para a sua rotina, com saúde e sem culpa."
+            >
+                <a
+                    className="tb-btn tb-btn--green"
+                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o acompanhamento nutricional.")}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <i className="fab fa-whatsapp" aria-hidden="true" />
+                    Falar com a Thaís no WhatsApp
+                </a>
+                <a className="tb-btn tb-btn--ghost" href={INSTAGRAM} target="_blank" rel="noreferrer">
+                    <i className="fab fa-instagram" aria-hidden="true" />
+                    Ver o Instagram
+                </a>
+            </CtaBanner>
         </Layout>
     );
 }
 
-export const Head = () => <Seo />;
+export const Head = () => (
+    <Seo
+        path="/"
+        title="Thaís Basso | Nutricionista Comportamental"
+        description="Acompanhamento nutricional comportamental para hábitos reais. Saúde sem dieta, sem culpa e sem perfeição, presencial em Carlos Barbosa/RS e online."
+    />
+);

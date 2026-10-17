@@ -1,0 +1,105 @@
+.tb-method-home {
+    position: relative;
+    background: var(--tb-surface);
+}
+
+.tb-method-home-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 24px);
+}
+
+.tb-method-home-grid::before {
+    content: '';
+    position: absolute;
+    top: 78px;
+    right: 8%;
+    left: 8%;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, rgba(73, 49, 101, 0.22) 0 8px, transparent 8px 16px);
+}
+
+.tb-method-card {
+    position: relative;
+    padding: clamp(22px, 2.8vw, 30px);
+    border: 1px solid var(--tb-line);
+    border-radius: var(--tb-radius);
+    background: var(--tb-surface);
+    transition: transform var(--tb-transition), box-shadow var(--tb-transition), border-color var(--tb-transition);
+}
+
+.tb-method-card:hover {
+    border-color: rgba(139, 199, 75, 0.65);
+    box-shadow: var(--tb-shadow-soft);
+    transform: translateY(-6px);
+}
+
+.tb-method-card-number {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: rgba(73, 49, 101, 0.12);
+    font-family: var(--titles-font);
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+.tb-method-card-icon {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 46px;
+    border-radius: 50%;
+    background: var(--pallete-portfolio-second);
+    color: var(--pallete-portfolio-first);
+    font-size: 1.08rem;
+    transition: background var(--tb-transition), color var(--tb-transition), transform var(--tb-transition);
+}
+
+.tb-method-card:hover .tb-method-card-icon {
+    background: var(--pallete-green);
+    color: #2f4d12;
+    transform: scale(1.06);
+}
+
+.tb-method-card h3 {
+    margin-bottom: 0.35em;
+    font-family: var(--main-font);
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.tb-method-card p {
+    margin: 0;
+    color: var(--tb-muted);
+    font-size: 0.88rem;
+    line-height: 1.68;
+}
+
+.tb-method-home-actions {
+    margin-top: clamp(32px, 5vw, 52px);
+}
+
+@media (max-width: 991px) {
+    .tb-method-home-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tb-method-home-grid::before {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .tb-method-home-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tb-method-card-icon {
+        margin-bottom: 30px;
+    }
+}

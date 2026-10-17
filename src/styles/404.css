@@ -1,7 +1,47 @@
-#gatsby-focus-wrapper {
-    height: 100vh;
+.tb-not-found {
+    display: grid;
+    place-items: center;
+    min-height: 65vh;
+    padding: clamp(56px, 10vw, 120px) 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(234, 133, 191, 0.18), transparent 34%),
+        radial-gradient(circle at 85% 75%, rgba(139, 199, 75, 0.14), transparent 32%),
+        var(--tb-cream);
 }
 
-.err404 img {
-    width: 20rem;
+.tb-not-found-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tb-not-found-inner .tb-actions {
+    margin-top: 26px;
+}
+
+.tb-not-found-code {
+    margin: 0 0 -0.15em;
+    color: transparent;
+    font-family: var(--titles-font);
+    font-size: clamp(7rem, 22vw, 15rem);
+    line-height: 0.8;
+    -webkit-text-stroke: 2px rgba(73, 49, 101, 0.15);
+    user-select: none;
+}
+
+.tb-not-found-inner .tb-eyebrow {
+    justify-content: center;
+}
+
+.tb-not-found-inner .tb-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--pallete-green);
+    border-radius: 2px;
+}
+
+.tb-not-found-inner .tb-lead {
+    margin: 0 auto;
 }

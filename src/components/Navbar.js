@@ -1,93 +1,115 @@
 import { Link } from "gatsby";
-import React from "react";
-import { Container } from "./common/interface/UI";
+import React, { useEffect, useState } from "react";
+import { INSTAGRAM, NAV_LINKS, SOCIAL_LINKS, whatsappLink } from "../content/site";
 import "./Navbar.css";
 
 export default function Navbar(props) {
+    const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [path, setPath] = useState("");
 
-    const PAGES = [
-        {
-            name: "Início",
-            to: "/",
-            ariaLabel: "Página inicial",
-        },
-        // {
-        //     name: "Sobre mim",
-        //     to: "/sobre-mim",
-        //     ariaLable: "Informações sobre mim",
-        // },
-        {
-            name: "Contato",
-            to: "/contato",
-            ariaLabel: "Informações de contato",
-        },
-        // {
-        //     name: "Atendimentos",
-        //     to: "/atendimentos",
-        //     ariaLabel: "Informações sobre as consultas e valores dos planos.",
-        // }
-    ];
+    useEffect(() => {
+        setPath(window.location.pathname);
 
-    // {
-    //     name: 'Consultório',
-    //     to: '/consultorio',
-    //     ariaLabel: 'Informações sobre o consultório',
-    // },
+        const handleScroll = () => setScrolled(window.scrollY > 12);
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const SOCIAL_LINKS = [
-        {
-            icon: "fa-facebook",
-            href: "https://www.facebook.com/nutricionistathaisb",
-            alt: "Link do Facebook",
-        },
-        {
-            icon: "fa-instagram",
-            href: "https://www.instagram.com/nutrithaisbasso",
-            alt: "Link do Instagram",
-        },
-        {
-            icon: "fa-whatsapp",
-            href: "https://api.whatsapp.com/send?1=pt_BR&phone=5554997119446",
-            alt: "Link do WhatsApp",
-        },
-        {
-            icon: "fa-youtube",
-            href: "https://www.youtube.com/channel/UCACMTraiEAeIf0pZ552PNZg",
-            alt: "Link do canal do Youtube",
-        },
-    ];
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        document.body.classList.toggle("tb-nav-open", open);
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") setOpen(false);
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            document.body.classList.remove("tb-nav-open");
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [open]);
+
+    const isActive = (to) => (to === "/" ? path === "/" : path.startsWith(to));
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${props.page}`}>
-            <Container className="justify-content-between">
-                <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i className="fas fa-bars"></i>
-                </button>
+        <>
+            <nav className={`navbar tb-navbar fixed-top ${scrolled ? "is-scrolled" : ""} ${props.page || ""}`.trim()} aria-label="Navegação principal">
+                <div className="container-custom tb-navbar-inner">
+                    <Link to="/" className="tb-navbar-brand" aria-label="Página inicial - Thaís Basso">
+                        <img src="/icons/logo-with-name.png" alt="Thaís Basso Nutricionista" />
+                    </Link>
 
-                <Link to="/" alt="Página inicial">
-                    <img src="/icons/logo-with-name.png" alt="Logo Thaís Basso nutricionista" className="logo" />
-                </Link>
+                    <button
+                        type="button"
+                        className={`tb-navbar-toggle ${open ? "is-open" : ""}`}
+                        aria-label={open ? "Fechar menu" : "Abrir menu"}
+                        aria-expanded={open}
+                        aria-controls="menu-principal"
+                        onClick={() => setOpen((value) => !value)}
+                    >
+                        <span />
+                        <span />
+                        <span />
+                    </button>
 
-                <div id="navbarSupportedContent" className="collapse navbar-collapse flex-grow-0">
-                    <ul className="navbar-nav mb-lg-0">
-                        {PAGES.map((page, index) => (
-                            <li key={index} className="nav-item px-3">
-                                <Link to={page.to} aria-label={page.ariaLabel} className="nav-link text go-right">
-                                    {page.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                    <div id="menu-principal" className={`tb-navbar-menu ${open ? "is-open" : ""}`.trim()}>
+                        <ul className="tb-navbar-links">
+                            {NAV_LINKS.map((link) => (
+                                <li key={link.to}>
+                                    <Link
+                                        to={link.to}
+                                        className={`tb-navbar-link ${isActive(link.to) ? "is-active" : ""}`.trim()}
+                                        aria-current={isActive(link.to) ? "page" : undefined}
+                                        onClick={() => setOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
 
-                <div id="socialLinks" className="d-flex align-items-center d-none d-lg-block">
-                    {SOCIAL_LINKS.map((page, index) => (
-                        <a href={page.href} alt={page.alt} target="_blank" rel="noreferrer" key={index}>
-                            <i className={`fab ${page.icon} fa-1x px-2`} />
+                        <div className="tb-navbar-menu-footer">
+                            <a
+                                className="tb-btn tb-btn--whatsapp tb-navbar-menu-cta"
+                                href={whatsappLink()}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => setOpen(false)}
+                            >
+                                <i className="fab fa-whatsapp" aria-hidden="true" />
+                                Agendar consulta
+                            </a>
+                            <div className="tb-navbar-menu-social">
+                                {SOCIAL_LINKS.map((social) => (
+                                    <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
+                                        <i className={`fab ${social.icon}`} aria-hidden="true" />
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="tb-navbar-actions">
+                        <a className="tb-navbar-social" href={INSTAGRAM} target="_blank" rel="noreferrer" aria-label="Instagram da Thaís Basso">
+                            <i className="fab fa-instagram" aria-hidden="true" />
                         </a>
-                    ))}
+                        <a className="tb-btn tb-btn--primary tb-navbar-cta" href={whatsappLink()} target="_blank" rel="noreferrer">
+                            Agendar consulta
+                        </a>
+                    </div>
                 </div>
-            </Container>
-        </nav>
+            </nav>
+
+            <button
+                type="button"
+                className={`tb-navbar-overlay ${open ? "is-visible" : ""}`.trim()}
+                aria-label="Fechar menu"
+                tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
+            />
+        </>
     );
 }

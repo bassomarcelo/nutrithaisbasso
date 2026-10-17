@@ -8,22 +8,34 @@ export default function Seo(props) {
                 siteMetadata {
                     title
                     description
+                    canonical
+                    siteUrl
                 }
             }
         }
     `);
 
-    const { title, description } = data.site.siteMetadata;
+    const { title, description, siteUrl } = data.site.siteMetadata;
+    const pageTitle = props.title || title;
+    const pageDescription = props.description || description;
+    const canonical = props.path ? `${siteUrl}${props.path}` : siteUrl;
 
     return (
         <>
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="canonical" href="https://thaisbasso.com" />
+            <link rel="canonical" href={canonical} />
             <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
-            <title>{props.title || title}</title>
-            <meta name="description" content={props.description || description} />
+            <title>{pageTitle}</title>
+            <meta name="description" content={pageDescription} />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content="Thaís Basso Nutricionista" />
+            <meta property="og:title" content={pageTitle} />
+            <meta property="og:description" content={pageDescription} />
+            <meta property="og:url" content={canonical} />
+            <meta property="og:locale" content="pt_BR" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="theme-color" content="#493165" />
         </>
     );
 }

@@ -20,6 +20,7 @@
         "gatsby-plugin-cname": "^1.0.0",
         "gatsby-plugin-git-lastmod": "^0.1.2",
         "gatsby-plugin-image": "^3.7.0",
+        "gatsby-plugin-react-svg": "^3.3.0",
         "gatsby-plugin-robots-txt": "^1.8.0",
         "gatsby-plugin-sharp": "^5.7.0",
         "gatsby-plugin-sitemap": "^6.9.0",
@@ -40,5 +41,11 @@
     "devDependencies": {
         "gh-pages": "^5.0.0",
         "svg-react-loader": "^0.4.6"
+    },
+    "overrides": {
+        "sharp": "^0.33.5"
+    },
+    "allowScripts": {
+        "sharp@0.33.5": true
     }
 }
