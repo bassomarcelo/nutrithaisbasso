@@ -8,28 +8,11 @@ export default function Footer() {
         <footer className="tb-footer">
             <div className="container-custom">
                 <div className="tb-footer-top">
-                    <div className="tb-footer-brand">
-                        <Link to="/" aria-label="Página inicial - Thaís Basso">
-                            <img src="/icons/logo-with-name.png" alt="Thaís Basso Nutricionista" />
-                        </Link>
-                        <p>
-                            Nutricionista funcional e comportamental. Acompanhamento nutricional para hábitos reais, sem dieta, sem culpa e sem perfeição.
-                        </p>
-                        <span className="tb-footer-crn">CRN-2: 16231D</span>
-                        <a className="tb-btn tb-btn--green tb-footer-cta" href={whatsappLink()} target="_blank" rel="noreferrer">
-                            <i className="fab fa-whatsapp" aria-hidden="true" />
-                            Falar com a Thaís
-                        </a>
-                    </div>
-
                     <div className="tb-footer-column">
                         <h3>Navegue</h3>
                         <ul>
                             <li>
                                 <Link to="/">Início</Link>
-                            </li>
-                            <li>
-                                <Link to="/acompanhamento-nutricional">Acompanhamento nutricional</Link>
                             </li>
                             <li>
                                 <Link to="/metodo-seja-real-nao-perfeito">Método Seja Real, Não Perfeito</Link>
@@ -38,22 +21,16 @@ export default function Footer() {
                                 <Link to="/sobre">Sobre a Thaís</Link>
                             </li>
                             <li>
-                                <Link to="/blog">Blog</Link>
-                            </li>
-                            <li>
                                 <Link to="/contato">Contato</Link>
                             </li>
                         </ul>
                     </div>
 
                     <div className="tb-footer-column">
-                        <h3>Outras formas de começar</h3>
+                        <h3>Serviços</h3>
                         <ul>
                             <li>
                                 <Link to="/consultoria-nutricional-online">Consultoria Online – 30 dias</Link>
-                            </li>
-                            <li>
-                                <Link to="/desafio-reset-21">Desafio Reset 21</Link>
                             </li>
                         </ul>
                         <div className="tb-footer-social">
@@ -100,7 +77,7 @@ export default function Footer() {
                             Lucas
                         </a>{" "}
                         e{" "}
-                        <a href="https://github.com/marcelobasso" target="_blank" rel="noreferrer">
+                        <a href="https://github.com/bassomarcelo" target="_blank" rel="noreferrer">
                             Marcelo
                         </a>
                     </span>

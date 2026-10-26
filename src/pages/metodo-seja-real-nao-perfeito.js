@@ -43,7 +43,7 @@ const LIFESTYLE_PILLARS = [
 export default function Metodo() {
     const data = useStaticQuery(graphql`
         query MetodoHeroImage {
-            image: file(relativePath: { eq: "fotos-thais/foto-perfil.jpg" }) {
+            image: file(relativePath: { eq: "04-2026/IMG_1354.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP], quality: 88)
                 }
@@ -55,10 +55,10 @@ export default function Metodo() {
     return (
         <Layout>
             <PageHero
-                eyebrow="Diferencial do acompanhamento"
+                eyebrow="A visão do trabalho"
                 title="Método Seja Real, Não Perfeito"
                 intro="Uma forma de trabalhar nutrição que começa pela sua realidade, não por um ideal impossível. O método integra nutrição, comportamento e estilo de vida em quatro fases."
-                image={<GatsbyImage image={image} alt="Thaís Basso com um copo de café, sentada em um café" />}
+                image={<GatsbyImage image={image} alt="Thaís Basso sorrindo, em um retrato de estúdio" />}
             >
                 <a
                     className="tb-btn tb-btn--primary"
@@ -69,8 +69,8 @@ export default function Metodo() {
                     Quero aplicar o método com você
                     <i className="fas fa-arrow-right" aria-hidden="true" />
                 </a>
-                <Link className="tb-btn tb-btn--ghost" to="/acompanhamento-nutricional">
-                    Ver o acompanhamento
+                <Link className="tb-btn tb-btn--ghost" to="/consultoria-nutricional-online">
+                    Ver a consultoria
                 </Link>
             </PageHero>
 
@@ -94,8 +94,8 @@ export default function Metodo() {
 
                         <Reveal className="tb-split-media" delay={120}>
                             <div className="tb-card" style={{ padding: "clamp(28px, 4vw, 44px)" }}>
-                                <i className="fas fa-quote-left" style={{ color: "var(--pallete-pink)", fontSize: "1.8rem", marginBottom: 18 }} aria-hidden="true" />
-                                <p style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.7rem)", fontFamily: "var(--second-font)", fontWeight: 300, lineHeight: 1.55, color: "var(--pallete-portfolio-first)" }}>
+                                <i className="fas fa-quote-left" style={{ color: "var(--pallete-second)", fontSize: "1.8rem", marginBottom: 18 }} aria-hidden="true" />
+                                <p style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.7rem)", fontFamily: "var(--second-font)", fontWeight: 300, lineHeight: 1.55, color: "var(--pallete-fisrt)" }}>
                                     “Não existe vida perfeita. Existe a vida que você tem — e o cuidado que cabe nela.”
                                 </p>
                                 <p className="tb-small" style={{ marginTop: 22 }}>
@@ -156,7 +156,7 @@ export default function Metodo() {
                         <span className="tb-eyebrow">Visão integrada</span>
                         <h2>Nutrição + comportamento + estilo de vida</h2>
                         <p>
-                            Os seis pilares da medicina do estilo de vida atravessam o acompanhamento. Nenhum trabalha sozinho; todos influenciam a forma como você
+                            Os seis pilares da medicina do estilo de vida atravessam o processo. Nenhum trabalha sozinho; todos influenciam a forma como você
                             come, descansa e vive.
                         </p>
                     </Reveal>
@@ -176,20 +176,20 @@ export default function Metodo() {
 
             <CtaBanner
                 eyebrow="Aplicar o método"
-                title="Quer viver esse processo com acompanhamento?"
-                text="O método ganha vida no acompanhamento nutricional. Vamos olhar para a sua realidade e construir, juntas, o próximo passo possível."
+                title="Quer viver esse processo na prática?"
+                text="O método ganha vida quando sai do papel. Vamos olhar para a sua realidade e construir, juntas, o próximo passo possível."
             >
                 <a
                     className="tb-btn tb-btn--green"
-                    href={whatsappLink("Olá, Thaís! Quero iniciar o acompanhamento com o Método Seja Real, Não Perfeito.")}
+                    href={whatsappLink("Olá, Thaís! Quero aplicar o Método Seja Real, Não Perfeito.")}
                     target="_blank"
                     rel="noreferrer"
                 >
                     <i className="fab fa-whatsapp" aria-hidden="true" />
-                    Quero iniciar meu acompanhamento
+                    Falar no WhatsApp
                 </a>
-                <Link className="tb-btn tb-btn--ghost" to="/acompanhamento-nutricional">
-                    Ver planos e valores
+                <Link className="tb-btn tb-btn--ghost" to="/consultoria-nutricional-online">
+                    Ver a consultoria
                 </Link>
             </CtaBanner>
         </Layout>

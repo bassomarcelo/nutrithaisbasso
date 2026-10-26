@@ -17,8 +17,8 @@
     height: 56px;
     margin-bottom: 22px;
     border-radius: 18px;
-    background: var(--pallete-portfolio-second);
-    color: var(--pallete-portfolio-first);
+    background: var(--pallete-second);
+    color: var(--pallete-fisrt);
     font-size: 1.35rem;
     transition: transform var(--tb-transition), background var(--tb-transition), color var(--tb-transition);
 }
@@ -33,18 +33,18 @@
 }
 
 .tb-contact-card--instagram .tb-contact-card-icon {
-    background: rgba(234, 133, 191, 0.2);
-    color: var(--pallete-violet);
+    background: rgba(222, 208, 231, 0.2);
+    color: var(--pallete-fisrt);
 }
 
 .tb-contact-card--email .tb-contact-card-icon {
     background: rgba(222, 208, 231, 0.55);
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
 }
 
 .tb-contact-card-label {
     margin-bottom: 6px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: 0.74rem;
     letter-spacing: 0.14em;
@@ -53,7 +53,7 @@
 
 .tb-contact-card strong {
     margin-bottom: 8px;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-size: 1.05rem;
     font-weight: 700;
     word-break: break-word;
@@ -70,7 +70,7 @@
     gap: 8px;
     align-items: center;
     margin-top: 20px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.82rem;
     font-weight: 700;
 }
@@ -109,7 +109,7 @@
     height: 40px;
     border-radius: 13px;
     background: rgba(255, 255, 255, 0.7);
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.95rem;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .tb-contact-info-block a:hover {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
 }
 
 .tb-contact-social {
@@ -139,14 +139,14 @@
     place-items: center;
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(71, 45, 101, 0.2);
+    border: 1px solid rgba(114, 59, 90, 0.2);
     border-radius: 50%;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     transition: background var(--tb-transition), color var(--tb-transition), transform var(--tb-transition);
 }
 
 .tb-contact-social a:hover {
-    background: var(--pallete-portfolio-first);
+    background: var(--pallete-fisrt);
     color: #fff;
     transform: translateY(-3px);
 }
@@ -156,7 +156,7 @@
     overflow: hidden;
     min-height: 380px;
     border-radius: var(--tb-radius);
-    background: var(--pallete-portfolio-second);
+    background: var(--pallete-second);
     box-shadow: var(--tb-shadow-soft);
 }
 

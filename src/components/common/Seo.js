@@ -10,12 +10,13 @@ export default function Seo(props) {
                     description
                     canonical
                     siteUrl
+                    isDemo
                 }
             }
         }
     `);
 
-    const { title, description, siteUrl } = data.site.siteMetadata;
+    const { title, description, siteUrl, isDemo } = data.site.siteMetadata;
     const pageTitle = props.title || title;
     const pageDescription = props.description || description;
     const canonical = props.path ? `${siteUrl}${props.path}` : siteUrl;
@@ -24,7 +25,9 @@ export default function Seo(props) {
         <>
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="canonical" href={canonical} />
+            {isDemo && <meta name="robots" content="noindex, nofollow" />}
+            {!isDemo && <link rel="canonical" href={canonical} />}
+            <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
             <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
             <title>{pageTitle}</title>
             <meta name="description" content={pageDescription} />
@@ -35,7 +38,7 @@ export default function Seo(props) {
             <meta property="og:url" content={canonical} />
             <meta property="og:locale" content="pt_BR" />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="theme-color" content="#493165" />
+            <meta name="theme-color" content="#723B5A" />
         </>
     );
 }

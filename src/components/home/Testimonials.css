@@ -41,7 +41,7 @@
 
 .tb-google-badge strong {
     display: block;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-size: 1rem;
     line-height: 1.2;
 }
@@ -50,6 +50,19 @@
     display: flex;
     gap: 2px;
     margin: 3px 0;
+    color: #f4b400;
+    font-size: 0.62rem;
+}
+
+.tb-google-stars .is-empty,
+.tb-testimonial-stars .is-empty {
+    color: rgba(114, 59, 90, 0.18);
+}
+
+.tb-testimonial-stars {
+    display: flex;
+    gap: 2px;
+    margin-top: 3px;
     color: #f4b400;
     font-size: 0.62rem;
 }
@@ -93,14 +106,14 @@
 }
 
 .tb-testimonial-card:hover {
-    border-color: rgba(173, 49, 115, 0.26);
+    border-color: rgba(114, 59, 90, 0.26);
     box-shadow: var(--tb-shadow-soft);
     transform: translateY(-4px);
 }
 
 .tb-testimonial-quote {
     margin-bottom: 18px;
-    color: var(--pallete-pink);
+    color: var(--pallete-second);
     font-size: 1.5rem;
 }
 
@@ -143,20 +156,21 @@
 .tb-testimonial-avatar--initials {
     display: grid;
     place-items: center;
-    background: var(--pallete-portfolio-second);
-    color: var(--pallete-portfolio-first);
+    background: var(--pallete-second);
+    color: var(--pallete-fisrt);
     font-size: 0.8rem;
     font-weight: 700;
 }
 
 .tb-testimonial-author strong {
     display: block;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-size: 0.82rem;
     line-height: 1.3;
 }
 
 .tb-testimonial-author small {
+    display: block;
     color: var(--tb-muted);
     font-size: 0.68rem;
 }
@@ -165,7 +179,7 @@
     display: inline-flex;
     gap: 6px;
     align-items: center;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.7rem;
     font-weight: 600;
 }
@@ -198,14 +212,14 @@
     border: 1px solid var(--tb-line);
     border-radius: 50%;
     background: #fff;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-size: 0.85rem;
     cursor: pointer;
     transition: background var(--tb-transition), color var(--tb-transition), transform var(--tb-transition);
 }
 
 .tb-testimonials-arrow:hover {
-    background: var(--pallete-portfolio-first);
+    background: var(--pallete-fisrt);
     color: #fff;
     transform: translateY(-2px);
 }
@@ -220,7 +234,7 @@
     display: inline-flex;
     gap: 8px;
     align-items: center;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.8rem;
     font-weight: 700;
 }

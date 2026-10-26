@@ -1,9 +1,10 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
-import { whatsappLink } from "../../content/site";
 import Reveal from "../common/Reveal";
 import "./Hero.css";
+
+const MARQUEE_PHRASES = ["Sem dieta", "Sem culpa", "Sem perfeição", "Nutrição comportamental", "Hábitos reais"];
 
 export default function Hero() {
     const data = useStaticQuery(graphql`
@@ -29,27 +30,21 @@ export default function Hero() {
             <div className="container-custom">
                 <div className="tb-hero-grid">
                     <Reveal className="tb-hero-copy">
-                        <span className="tb-eyebrow">Nutricionista comportamental · CRN-2 16231D</span>
                         <h1 className="tb-hero-title">
-                            <span className="tb-hero-title-top">Nutricionista Comportamental</span>
-                            Acompanhamento nutricional para <em>hábitos reais</em>
+                            <span className="tb-hero-title-top">Thaís Basso · Nutricionista Comportamental</span>
+                            Nutrição para <em>hábitos reais</em>
                         </h1>
                         <p className="tb-hero-subtitle">Saúde sem dieta, sem culpa e sem perfeição.</p>
                         <p className="tb-hero-text">
-                            Um acompanhamento individual para você sair do ciclo de restrição e recomeço, aprender a comer com autonomia e construir uma rotina
+                            Um trabalho individual para você sair do ciclo de restrição e recomeço, aprender a comer com autonomia e construir uma rotina
                             que caiba na sua vida de verdade.
                         </p>
 
                         <div className="tb-actions tb-hero-actions">
-                            <a
-                                className="tb-btn tb-btn--primary"
-                                href={whatsappLink("Olá, Thaís! Quero iniciar meu acompanhamento nutricional.")}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                Quero iniciar meu acompanhamento
+                            <Link className="tb-btn tb-btn--primary" to="/consultoria-nutricional-online">
+                                Conhecer a consultoria
                                 <i className="fas fa-arrow-right" aria-hidden="true" />
-                            </a>
+                            </Link>
                             <a className="tb-btn tb-btn--ghost" href="#metodo">
                                 Conhecer o método
                             </a>
@@ -106,26 +101,18 @@ export default function Hero() {
 
             <div className="tb-hero-marquee" aria-hidden="true">
                 <div className="tb-hero-marquee-track">
-                    <span>Sem dieta</span>
-                    <i className="fas fa-circle" />
-                    <span>Sem culpa</span>
-                    <i className="fas fa-circle" />
-                    <span>Sem perfeição</span>
-                    <i className="fas fa-circle" />
-                    <span>Nutrição comportamental</span>
-                    <i className="fas fa-circle" />
-                    <span>Hábitos reais</span>
-                    <i className="fas fa-circle" />
-                    <span>Sem dieta</span>
-                    <i className="fas fa-circle" />
-                    <span>Sem culpa</span>
-                    <i className="fas fa-circle" />
-                    <span>Sem perfeição</span>
-                    <i className="fas fa-circle" />
-                    <span>Nutrição comportamental</span>
-                    <i className="fas fa-circle" />
-                    <span>Hábitos reais</span>
-                    <i className="fas fa-circle" />
+                    {[0, 1].map((half) => (
+                        <div className="tb-hero-marquee-group" key={half}>
+                            {Array.from({ length: 4 }, (_, i) =>
+                                MARQUEE_PHRASES.map((phrase) => (
+                                    <React.Fragment key={`${i}-${phrase}`}>
+                                        <span>{phrase}</span>
+                                        <i className="fas fa-circle" />
+                                    </React.Fragment>
+                                ))
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

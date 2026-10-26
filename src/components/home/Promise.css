@@ -27,10 +27,10 @@
 
 .tb-promise-cycle span {
     padding: 8px 15px;
-    border: 1px solid rgba(173, 49, 115, 0.25);
+    border: 1px solid rgba(114, 59, 90, 0.25);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.6);
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: 0.76rem;
     letter-spacing: 0.1em;
@@ -38,23 +38,23 @@
 }
 
 .tb-promise-cycle i {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.62rem;
     opacity: 0.6;
 }
 
 .tb-promise-cycle i:last-child {
-    color: var(--pallete-red);
+    color: var(--pallete-fisrt);
     font-size: 0.8rem;
 }
 
 .tb-promise-quote {
     margin: 0;
     padding: 20px 24px;
-    border-left: 4px solid var(--pallete-green);
+    border-left: 4px solid var(--pallete-third);
     border-radius: 0 var(--tb-radius-sm) var(--tb-radius-sm) 0;
     background: rgba(255, 255, 255, 0.65);
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: clamp(1rem, 1.5vw, 1.14rem);
     font-weight: 300;
@@ -74,7 +74,7 @@
     border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: var(--tb-radius);
     background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 16px 38px -34px rgba(71, 45, 101, 0.5);
+    box-shadow: 0 16px 38px -34px rgba(114, 59, 90, 0.5);
     transition: transform var(--tb-transition), box-shadow var(--tb-transition);
 }
 

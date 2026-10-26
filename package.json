@@ -6,8 +6,11 @@
     "version": "0.1.0",
     "license": "0BSD",
     "scripts": {
-        "deploy": "gatsby build && gh-pages -d public",
+        "deploy": "gatsby clean && gatsby build && gh-pages -d public",
+        "deploy-demo": "npm run build:demo && gh-pages -d public -b master -r \"${DEMO_REPO_URL:-git@github.com:marcelobasso/nutrithaisbasso-demo.git}\"",
+        "take-down-demo": "gh-pages -d scripts/demo-down -b master -r \"${DEMO_REPO_URL:-git@github.com:marcelobasso/nutrithaisbasso-demo.git}\"",
         "build": "gatsby build",
+        "build:demo": "gatsby clean && DEMO=1 gatsby build",
         "develop": "gatsby develop",
         "start": "gatsby develop",
         "serve": "gatsby serve",
@@ -33,10 +36,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/marceloBasso/nutrithaisbasso"
+        "url": "https://github.com/bassomarcelo/nutrithaisbasso"
     },
     "bugs": {
-        "url": "https://github.com/marceloBasso/nutrithaisbasso/issues"
+        "url": "https://github.com/bassomarcelo/nutrithaisbasso/issues"
     },
     "devDependencies": {
         "gh-pages": "^5.0.0",

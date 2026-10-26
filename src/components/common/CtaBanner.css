@@ -8,21 +8,21 @@
     padding: clamp(40px, 7vw, 88px);
     border-radius: clamp(28px, 4vw, 48px);
     background:
-        radial-gradient(circle at 88% 12%, rgba(234, 133, 191, 0.55), transparent 34%),
-        linear-gradient(135deg, var(--pallete-violet-dark) 0%, var(--pallete-portfolio-first) 52%, var(--pallete-violet) 100%);
+        radial-gradient(circle at 88% 12%, rgba(222, 208, 231, 0.55), transparent 34%),
+        linear-gradient(135deg, var(--pallete-fisrt) 0%, var(--pallete-fisrt) 52%, var(--pallete-fisrt) 100%);
     color: #fff;
     text-align: center;
     box-shadow: var(--tb-shadow);
 }
 
 .tb-cta-banner .tb-eyebrow {
-    color: var(--pallete-pink);
+    color: var(--pallete-second);
     justify-content: center;
 }
 
 .tb-cta-banner .tb-eyebrow::before,
 .tb-cta-banner .tb-eyebrow::after {
-    background: var(--pallete-green);
+    background: var(--pallete-third);
 }
 
 .tb-cta-banner h2 {
@@ -68,7 +68,7 @@
     left: -80px;
     width: 260px;
     height: 260px;
-    background: rgba(139, 199, 75, 0.18);
+    background: rgba(64, 82, 66, 0.18);
 }
 
 .tb-cta-banner-shape--two {

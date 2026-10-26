@@ -3,8 +3,8 @@
     overflow: hidden;
     padding: clamp(48px, 8vw, 104px) 0 clamp(64px, 9vw, 120px);
     background:
-        radial-gradient(circle at 12% 18%, rgba(234, 133, 191, 0.2), transparent 34%),
-        radial-gradient(circle at 88% 72%, rgba(139, 199, 75, 0.18), transparent 36%),
+        radial-gradient(circle at 12% 18%, rgba(222, 208, 231, 0.2), transparent 34%),
+        radial-gradient(circle at 88% 72%, rgba(64, 82, 66, 0.18), transparent 36%),
         linear-gradient(180deg, #f6f0f9 0%, var(--tb-cream) 100%);
 }
 
@@ -43,7 +43,7 @@
     position: relative;
     overflow: hidden;
     border-radius: clamp(24px, 3vw, 38px);
-    background: var(--pallete-portfolio-second);
+    background: var(--pallete-second);
     box-shadow: var(--tb-shadow);
     aspect-ratio: 4 / 4.5;
 }
@@ -89,7 +89,7 @@
     left: -70px;
     width: 220px;
     height: 220px;
-    background: rgba(139, 199, 75, 0.16);
+    background: rgba(64, 82, 66, 0.16);
     animation: float-soft 11s ease-in-out infinite reverse;
 }
 
@@ -102,7 +102,7 @@
     width: 68%;
     height: 62%;
     border-radius: 36px;
-    background: var(--pallete-green);
+    background: var(--pallete-third);
     opacity: 0.55;
 }
 

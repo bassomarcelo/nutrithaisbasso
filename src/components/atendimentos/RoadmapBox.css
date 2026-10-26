@@ -1,7 +1,7 @@
 div.roadmap-box {
     border-radius: 24px;
-    box-shadow: 24px 24px var(--pallete-violet-dark);
-    -moz-box-shadow: 24px 24px var(--pallete-violet-dark);
-    -webkit-box-shadow: 24px 24px var(--pallete-violet-dark);
-    -o-box-shadow: 24px 24px var(--pallete-violet-dark);
+    box-shadow: 24px 24px var(--pallete-fisrt);
+    -moz-box-shadow: 24px 24px var(--pallete-fisrt);
+    -webkit-box-shadow: 24px 24px var(--pallete-fisrt);
+    -o-box-shadow: 24px 24px var(--pallete-fisrt);
 }

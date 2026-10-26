@@ -8,7 +8,7 @@ import "./AboutPreview.css";
 export default function AboutPreview() {
     const data = useStaticQuery(graphql`
         query HomeAboutImage {
-            image: file(relativePath: { eq: "fotos-thais/profile-srnp.png" }) {
+            image: file(relativePath: { eq: "04-2026/IMG_1532.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP], quality: 88)
                 }
@@ -25,7 +25,7 @@ export default function AboutPreview() {
                     <Reveal className="tb-about-preview-media">
                         <span className="tb-about-preview-shape" aria-hidden="true" />
                         <div className="tb-about-preview-photo">
-                            <GatsbyImage image={image} alt="Thaís Basso sorrindo, segurando uma caneca de café" />
+                            <GatsbyImage image={image} alt="Thaís Basso sorrindo, sentada no consultório" />
                         </div>
                         <div className="tb-about-preview-badge">
                             <strong>CRN-2 16231D</strong>

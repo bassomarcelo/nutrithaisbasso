@@ -1,5 +1,5 @@
 section.aboutMe {
-    background-color: var(--pallete-portfolio-second);
+    background-color: var(--pallete-second);
     padding: 48px .5rem;
     margin: 3rem 0;
     z-index: 1;
@@ -16,10 +16,10 @@ section.aboutMe div.image-container {
 }
 
 section.aboutMe div img {
-    box-shadow: 24px 24px var(--pallete-violet-dark);
-    -moz-box-shadow: 24px 24px  var(--pallete-violet-dark);
-    -webkit-box-shadow: 24px 24px  var(--pallete-violet-dark);
-    -o-box-shadow: 24px 24px  var(--pallete-violet-dark);
+    box-shadow: 24px 24px var(--pallete-fisrt);
+    -moz-box-shadow: 24px 24px  var(--pallete-fisrt);
+    -webkit-box-shadow: 24px 24px  var(--pallete-fisrt);
+    -o-box-shadow: 24px 24px  var(--pallete-fisrt);
 }
 
 section.aboutMe div .aboutMeText {

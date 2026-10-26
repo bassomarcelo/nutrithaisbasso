@@ -43,7 +43,7 @@ export default function Treatment(props) {
 
     const sections = props.sections || [
         {
-            title: "Para quem é o acompanhamento nutricional?",
+            title: "Para quem é o atendimento nutricional?",
             content: (
                 <>
                     <p>

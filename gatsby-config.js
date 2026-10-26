@@ -7,6 +7,13 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+// Builds with DEMO=1 are published to demo.thaisbasso.com: no sitemap,
+// robots.txt blocking everything and a noindex meta tag on every page.
+const isDemo = process.env.DEMO === "1";
+const domain = isDemo ? "demo.thaisbasso.com" : "thaisbasso.com";
+const siteUrl = `https://${domain}`;
+
 module.exports = {
     plugins: [
         `gatsby-plugin-image`,
@@ -34,40 +41,50 @@ module.exports = {
             },
         },
         "gatsby-plugin-react-svg",
-        {
-            resolve: `gatsby-plugin-sitemap`,
-            options: {
-                query: `
-                    {
-                        site {
-                            siteMetadata {
-                                siteUrl
-                            }
-                        }
-                        allSitePage {
-                            nodes {
-                                path
-                                pageContext
-                            }
-                        }
-                    }
-                `,
-                serialize: ({ path, pageContext }) => {
-                    return {
-                        url: path,
-                        lastmod: pageContext?.lastMod,
-                    };
-                },
-            },
-        },
+        ...(isDemo
+            ? []
+            : [
+                  {
+                      resolve: `gatsby-plugin-sitemap`,
+                      options: {
+                          query: `
+                              {
+                                  site {
+                                      siteMetadata {
+                                          siteUrl
+                                      }
+                                  }
+                                  allSitePage {
+                                      nodes {
+                                          path
+                                          pageContext
+                                      }
+                                  }
+                              }
+                          `,
+                          serialize: ({ path, pageContext }) => {
+                              return {
+                                  url: path,
+                                  lastmod: pageContext?.lastMod,
+                              };
+                          },
+                      },
+                  },
+              ]),
         `gatsby-plugin-git-lastmod`,
         {
-            resolve: 'gatsby-plugin-robots-txt',
-            options: {
-                host: 'https://thaisbasso.com',
-                sitemap: 'https://thaisbasso.com/sitemap-0.xml',
-                policy: [{userAgent: '*', allow: '/'}]
-            }
+            resolve: `gatsby-plugin-robots-txt`,
+            options: isDemo
+                ? {
+                      policy: [{ userAgent: '*', disallow: '/' }],
+                      host: null,
+                      sitemap: null,
+                  }
+                : {
+                      host: 'https://thaisbasso.com',
+                      sitemap: 'https://thaisbasso.com/sitemap-0.xml',
+                      policy: [{ userAgent: '*', allow: '/' }],
+                  },
         },
         'gatsby-plugin-cname'
     ],
@@ -76,8 +93,9 @@ module.exports = {
         title: "Thaís Basso | Nutricionista Comportamental",
         description:
             "Nutricionista funcional e comportamental. Acompanhamento nutricional para hábitos reais, com saúde sem dieta, sem culpa e sem perfeição. Presencial em Carlos Barbosa/RS e online.",
-        canonical: "https://thaisbasso.com",
-        siteUrl: "https://thaisbasso.com",
-        author: "marceloBasso",
+        canonical: siteUrl,
+        siteUrl: siteUrl,
+        isDemo: isDemo,
+        author: "bassomarcelo",
     },
 };

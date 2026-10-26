@@ -7,27 +7,60 @@ import "./Testimonials.css";
 
 const GOOGLE_REVIEWS = "https://www.google.com/maps/place/Tha%C3%ADs+Basso+Nutricionista+Funcional+e+comportamental/@-29.2939876,-51.4989672,17z/data=!4m8!3m7!1s0x951c195e1b1bb64f:0x5e8468a758137428!8m2!3d-29.2939923!4d-51.4963869!9m1!1b1!16s%2Fg%2F11p0_77cs2?hl=pt-BR&entry=ttu";
 
+const renderStars = (rating) =>
+    [1, 2, 3, 4, 5].map((step) => (
+        <i key={step} className={`fas fa-star ${step <= Math.round(rating) ? "is-filled" : "is-empty"}`} aria-hidden="true" />
+    ));
+
 export default function Testimonials() {
     const trackRef = useRef(null);
     const data = useStaticQuery(graphql`
-        query HomeTestimonialAvatars {
-            images: allFile(filter: { relativePath: { regex: "/social-proof/" } }) {
-                edges {
-                    node {
-                        name
+        query HomeTestimonials {
+            googleReviews: allGoogleReview(sort: { fields: name }) {
+                nodes {
+                    name
+                    text
+                    rating
+                    relativeTime
+                    avatar {
                         childImageSharp {
                             gatsbyImageData(width: 96, height: 96, placeholder: BLURRED, formats: [AUTO, WEBP])
                         }
                     }
                 }
             }
+            googleMeta: allGoogleReviewsMeta {
+                nodes {
+                    rating
+                    userRatingCount
+                }
+            }
         }
     `);
 
-    const avatars = {};
-    data.images.edges.forEach(({ node }) => {
-        avatars[`${node.name}.png`] = getImage(node.childImageSharp.gatsbyImageData);
-    });
+    const googleNodes = data.googleReviews.nodes;
+    const meta = data.googleMeta.nodes[0];
+
+    const testimonials = googleNodes.length
+        ? googleNodes.map((node) => ({
+              key: node.name,
+              name: node.name,
+              text: node.text,
+              rating: node.rating ?? 5,
+              avatarImage: node.avatar ? getImage(node.avatar) : null,
+              label: node.relativeTime || "Avaliação no Google",
+          }))
+        : TESTIMONIALS.map((testimonial) => ({
+              key: testimonial.name,
+              name: testimonial.name,
+              text: testimonial.text,
+              rating: 5,
+              avatarImage: null,
+              label: "Paciente",
+          }));
+
+    const badgeRating = meta?.rating != null ? meta.rating.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : "5,0";
+    const badgeCount = meta?.userRatingCount != null ? meta.userRatingCount : null;
 
     const scroll = (direction) => {
         const track = trackRef.current;
@@ -51,23 +84,18 @@ export default function Testimonials() {
                             G
                         </span>
                         <span>
-                            <strong>5,0</strong>
-                            <span className="tb-google-stars" aria-label="Avaliação máxima de cinco estrelas">
-                                <i className="fas fa-star" aria-hidden="true" />
-                                <i className="fas fa-star" aria-hidden="true" />
-                                <i className="fas fa-star" aria-hidden="true" />
-                                <i className="fas fa-star" aria-hidden="true" />
-                                <i className="fas fa-star" aria-hidden="true" />
+                            <strong>{badgeRating}</strong>
+                            <span className="tb-google-stars" aria-label="Avaliação no Google">
+                                {renderStars(meta?.rating ?? 5)}
                             </span>
-                            <small>Avaliações no Google</small>
+                            <small>{badgeCount ? `${badgeCount} avaliações no Google` : "Avaliações no Google"}</small>
                         </span>
                     </Reveal>
                 </div>
 
                 <div className="tb-testimonials-viewport">
                     <div className="tb-testimonials-track" ref={trackRef} aria-label="Depoimentos de pacientes">
-                        {TESTIMONIALS.map((testimonial, index) => {
-                            const avatar = testimonial.avatar ? avatars[testimonial.avatar] : null;
+                        {testimonials.map((testimonial) => {
                             const initials = testimonial.name
                                 .split(" ")
                                 .slice(0, 2)
@@ -75,13 +103,13 @@ export default function Testimonials() {
                                 .join("");
 
                             return (
-                                <article className="tb-testimonial-card" key={testimonial.name}>
+                                <article className="tb-testimonial-card" key={testimonial.key}>
                                     <i className="fas fa-quote-left tb-testimonial-quote" aria-hidden="true" />
                                     <p className="tb-testimonial-text">{testimonial.text}</p>
                                     <div className="tb-testimonial-footer">
                                         <div className="tb-testimonial-author">
-                                            {avatar ? (
-                                                <GatsbyImage image={avatar} alt={`Foto de ${testimonial.name}`} className="tb-testimonial-avatar" />
+                                            {testimonial.avatarImage ? (
+                                                <GatsbyImage image={testimonial.avatarImage} alt={`Foto de ${testimonial.name}`} className="tb-testimonial-avatar" />
                                             ) : (
                                                 <span className="tb-testimonial-avatar tb-testimonial-avatar--initials" aria-hidden="true">
                                                     {initials}
@@ -89,10 +117,13 @@ export default function Testimonials() {
                                             )}
                                             <span>
                                                 <strong>{testimonial.name}</strong>
-                                                <small>Paciente</small>
+                                                <small>{testimonial.label}</small>
+                                                <span className="tb-testimonial-stars" aria-label={`Nota do paciente: ${testimonial.rating} de 5`}>
+                                                    {renderStars(testimonial.rating)}
+                                                </span>
                                             </span>
                                         </div>
-                                        <a href={testimonial.link} target="_blank" rel="noreferrer" className="tb-testimonial-link">
+                                        <a href={GOOGLE_REVIEWS} target="_blank" rel="noreferrer" className="tb-testimonial-link">
                                             Avaliação completa
                                             <i className="fas fa-external-link-alt" aria-hidden="true" />
                                         </a>

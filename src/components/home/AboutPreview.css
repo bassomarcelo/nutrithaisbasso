@@ -1,6 +1,6 @@
 .tb-about-preview {
     background:
-        radial-gradient(circle at 88% 20%, rgba(139, 199, 75, 0.13), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(64, 82, 66, 0.13), transparent 30%),
         var(--tb-cream);
 }
 
@@ -23,7 +23,7 @@
     overflow: hidden;
     border-radius: 40px 40px 40px 120px;
     aspect-ratio: 4 / 4.9;
-    background: var(--pallete-portfolio-second);
+    background: var(--pallete-second);
     box-shadow: var(--tb-shadow);
 }
 
@@ -41,7 +41,7 @@
     width: 55%;
     height: 48%;
     border-radius: 40px 40px 40px 120px;
-    background: var(--pallete-green);
+    background: var(--pallete-third);
     opacity: 0.65;
 }
 
@@ -61,7 +61,7 @@
 .tb-about-preview-badge strong {
     display: block;
     margin-bottom: 3px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: 0.9rem;
     letter-spacing: 0.08em;
@@ -101,7 +101,7 @@
 .tb-about-preview-list i {
     flex: 0 0 18px;
     margin-top: 4px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.82rem;
 }
 

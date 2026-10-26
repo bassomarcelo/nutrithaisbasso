@@ -82,7 +82,7 @@ export default function Contato() {
                         <Reveal className="tb-contact-info">
                             <span className="tb-eyebrow">Consultório</span>
                             <h2>Onde me encontrar</h2>
-                            <p className="tb-lead">Atendimento presencial em Carlos Barbosa/RS e acompanhamento online para todo o Brasil.</p>
+                            <p className="tb-lead">Atendimento presencial em Carlos Barbosa/RS e online para todo o Brasil.</p>
 
                             <div className="tb-contact-info-block">
                                 <i className="fas fa-map-marker-alt" aria-hidden="true" />

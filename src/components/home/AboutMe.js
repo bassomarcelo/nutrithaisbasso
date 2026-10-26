@@ -8,7 +8,7 @@ import Section from "../common/Section";
 export default function AboutMe(props) {
     const data = useStaticQuery(graphql`
         query ThaisProfileImages {
-            logo: file(relativePath: { eq: "fotos-thais/foto-profile.webp" }) {
+            logo: file(relativePath: { eq: "04-2026/IMG_1218.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP])
                 }

@@ -38,7 +38,7 @@ const FORMATION = [
 export default function Sobre() {
     const data = useStaticQuery(graphql`
         query SobreImages {
-            portrait: file(relativePath: { eq: "fotos-thais/profile-srnp.png" }) {
+            portrait: file(relativePath: { eq: "04-2026/IMG_1578.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP], quality: 88)
                 }
@@ -59,15 +59,15 @@ export default function Sobre() {
                 eyebrow="Sobre mim · CRN-2 16231D"
                 title="Thaís Basso"
                 intro="Nutricionista funcional e comportamental. Uma trajetória construída entre a ciência da nutrição e a escuta do que faz sentido para a vida real das pessoas."
-                image={<GatsbyImage image={portrait} alt="Retrato de Thaís Basso sorrindo, com uma caneca de café" />}
+                image={<GatsbyImage image={portrait} alt="Thaís Basso sorrindo, sentada junto à janela" />}
             >
                 <a
                     className="tb-btn tb-btn--primary"
-                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o acompanhamento nutricional.")}
+                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o atendimento nutricional.")}
                     target="_blank"
                     rel="noreferrer"
                 >
-                    Quero iniciar meu acompanhamento
+                    Quero conversar
                     <i className="fas fa-arrow-right" aria-hidden="true" />
                 </a>
                 <a className="tb-btn tb-btn--ghost" href={INSTAGRAM} target="_blank" rel="noreferrer">
@@ -144,7 +144,7 @@ export default function Sobre() {
                                 </span>
                                 <div>
                                     <h3>{item.title}</h3>
-                                    <p style={{ color: "var(--pallete-violet)", fontWeight: 600, marginBottom: 6 }}>{item.institution}</p>
+                                    <p style={{ color: "var(--pallete-fisrt)", fontWeight: 600, marginBottom: 6 }}>{item.institution}</p>
                                     <p>{item.text}</p>
                                 </div>
                             </Reveal>
@@ -168,7 +168,7 @@ export default function Sobre() {
                                 mais consistência. Menos proibição, mais autonomia.
                             </p>
                             <p>
-                                É esse caminho que ofereço no acompanhamento nutricional, com escuta, ciência e planos que respeitam a sua realidade.
+                                É esse caminho que ofereço no consultório, com escuta, ciência e planos que respeitam a sua realidade.
                             </p>
                             <Link className="tb-btn tb-btn--primary" to="/metodo-seja-real-nao-perfeito">
                                 Conheça o método
@@ -178,7 +178,7 @@ export default function Sobre() {
 
                         <Reveal className="tb-split-media" delay={100}>
                             <div className="tb-media-frame">
-                                <GatsbyImage image={portrait} alt="Thaís Basso em seu consultório" />
+                                <GatsbyImage image={portrait} alt="Thaís Basso sentada junto à janela" />
                                 <span className="tb-media-frame__badge">
                                     <i className="fas fa-seedling" aria-hidden="true" />
                                     Nutrição com escuta
@@ -196,15 +196,15 @@ export default function Sobre() {
             >
                 <a
                     className="tb-btn tb-btn--green"
-                    href={whatsappLink("Olá, Thaís! Quero iniciar meu acompanhamento nutricional.")}
+                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o atendimento nutricional.")}
                     target="_blank"
                     rel="noreferrer"
                 >
                     <i className="fab fa-whatsapp" aria-hidden="true" />
                     Falar no WhatsApp
                 </a>
-                <Link className="tb-btn tb-btn--ghost" to="/acompanhamento-nutricional">
-                    Ver o acompanhamento
+                <Link className="tb-btn tb-btn--ghost" to="/consultoria-nutricional-online">
+                    Ver a consultoria
                 </Link>
             </CtaBanner>
         </Layout>

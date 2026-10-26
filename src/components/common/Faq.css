@@ -8,7 +8,7 @@
 }
 
 .tb-faq-item {
-    border-bottom: 1px solid rgba(71, 45, 101, 0.16);
+    border-bottom: 1px solid rgba(114, 59, 90, 0.16);
 }
 
 .tb-faq-question {
@@ -20,7 +20,7 @@
     padding: 22px 4px;
     border: 0;
     background: transparent;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-family: var(--main-font);
     font-size: clamp(1rem, 1.4vw, 1.1rem);
     font-weight: 600;
@@ -30,7 +30,7 @@
 }
 
 .tb-faq-question:hover {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
 }
 
 .tb-faq-question i {
@@ -40,14 +40,14 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--pallete-portfolio-second);
-    color: var(--pallete-portfolio-first);
+    background: var(--pallete-second);
+    color: var(--pallete-fisrt);
     font-size: 0.8rem;
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .tb-faq-item.is-open .tb-faq-question i {
-    background: var(--pallete-portfolio-first);
+    background: var(--pallete-fisrt);
     color: white;
     transform: rotate(180deg);
 }

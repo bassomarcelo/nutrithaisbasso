@@ -37,7 +37,7 @@ export default function Promise() {
                             consegue manter.
                         </p>
 
-                        <div className="tb-promise-cycle" aria-label="Ciclo que o acompanhamento ajuda a interromper">
+                        <div className="tb-promise-cycle" aria-label="Ciclo de restrição e recomeço que a nutrição comportamental ajuda a interromper">
                             <span>restrição</span>
                             <i className="fas fa-arrow-right" aria-hidden="true" />
                             <span>culpa</span>

@@ -10,11 +10,6 @@ const CARDS = [
         icon: "fa-laptop-medical",
         meta: "30 dias · online",
     },
-    {
-        ...PRODUCTS.reset,
-        icon: "fa-bolt",
-        meta: "21 dias · no seu ritmo",
-    },
 ];
 
 export default function OtherWays() {
@@ -22,9 +17,9 @@ export default function OtherWays() {
         <section className="tb-other-ways tb-section tb-section--lavender" id="outras-formas">
             <div className="container-custom">
                 <Reveal className="tb-section-heading tb-section-heading--center">
-                    <span className="tb-eyebrow">Portas de entrada</span>
-                    <h2>Outras formas de começar</h2>
-                    <p>Se o acompanhamento ainda não é o momento, estas são alternativas mais leves para dar o primeiro passo com direção.</p>
+                    <span className="tb-eyebrow">Porta de entrada</span>
+                    <h2>Uma forma de começar</h2>
+                    <p>Um primeiro direcionamento leve para organizar a alimentação e dar o passo inicial com direção, sem pressão.</p>
                 </Reveal>
 
                 <div className="tb-other-ways-grid">

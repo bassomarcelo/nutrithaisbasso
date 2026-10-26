@@ -102,17 +102,27 @@
     --second-font: 'Oswald', sans-serif;
     --titles-font: 'League Gothic', 'Oswald', sans-serif;
 
-    --pallete-green: #8BC74B;
+    /* --pallete-green: #8BC74B;
     --pallete-red: #EE3234;
     --pallete-violet: #AD3173;
     --pallete-violet-dark: #472d65;
     --pallete-violet-light: #A2B1DA;
     --pallete-violet-light-hov: #8c99bd;
     --pallete-pink: #EA85BF;
+    
+    --pallete-portfolio-first: #723B5A; 
+    --pallete-portfolio-second: #ded0e7;  */
 
-    --pallete-portfolio-first: #493165;
-    --pallete-portfolio-second: #ded0e7;
+    /* -- new pallete colors : update 26-10-2026 */
 
+    --pallete-fisrt: #723B5A;
+    --pallete-second: #DED0E7;
+    --pallete-third: #405242;
+    --pallete-fourth: #E9E0D7;
+
+    /* -- end new pallete colors */
+    
+    --animation-default-duration: 70s;
     --title-font-size: clamp(3rem, 6vw, 5.25rem);
     --subtitle-font-size: clamp(1.05rem, 1.6vw, 1.3rem);
     --text-normal-size: 1rem;
@@ -122,12 +132,12 @@
     --tb-cream: #fbf8fc;
     --tb-surface: #ffffff;
     --tb-lavender-soft: #f3edf7;
-    --tb-line: rgba(71, 45, 101, 0.14);
+    --tb-line: rgba(114, 59, 90, 0.14);
     --tb-radius-sm: 16px;
     --tb-radius: 26px;
     --tb-radius-lg: 42px;
-    --tb-shadow: 0 30px 70px -35px rgba(71, 45, 101, 0.45);
-    --tb-shadow-soft: 0 18px 44px -28px rgba(71, 45, 101, 0.35);
+    --tb-shadow: 0 30px 70px -35px rgba(114, 59, 90, 0.45);
+    --tb-shadow-soft: 0 18px 44px -28px rgba(114, 59, 90, 0.35);
     --tb-transition: 0.35s cubic-bezier(0.22, 0.72, 0.24, 1);
     --tb-max-width: 1200px;
 }
@@ -163,15 +173,15 @@ body {
 }
 
 ::selection {
-    background: var(--pallete-pink);
-    color: var(--pallete-portfolio-first);
+    background: var(--pallete-second);
+    color: var(--pallete-fisrt);
 }
 
 h1,
 h2,
 h3 {
     margin: 0 0 0.5em;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-family: var(--titles-font);
     font-weight: 400;
     line-height: 0.98;
@@ -195,7 +205,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 0.6em;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-family: var(--main-font);
     font-weight: 700;
 }
@@ -209,13 +219,13 @@ p:last-child {
 }
 
 a {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     text-decoration: none;
     transition: color 0.25s ease;
 }
 
 a:hover {
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
 }
 
 img {
@@ -237,7 +247,7 @@ textarea {
 }
 
 :focus-visible {
-    outline: 3px solid var(--pallete-green);
+    outline: 3px solid var(--pallete-third);
     outline-offset: 3px;
 }
 
@@ -281,8 +291,8 @@ textarea {
 
 .tb-section--lavender {
     background:
-        radial-gradient(circle at 8% 15%, rgba(234, 133, 191, 0.14), transparent 34%),
-        radial-gradient(circle at 92% 85%, rgba(139, 199, 75, 0.12), transparent 32%),
+        radial-gradient(circle at 8% 15%, rgba(222, 208, 231, 0.14), transparent 34%),
+        radial-gradient(circle at 92% 85%, rgba(64, 82, 66, 0.12), transparent 32%),
         var(--tb-lavender-soft);
 }
 
@@ -312,7 +322,7 @@ textarea {
     align-items: center;
     gap: 10px;
     margin-bottom: 16px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: 0.82rem;
     font-weight: 500;
@@ -325,7 +335,7 @@ textarea {
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: var(--pallete-green);
+    background: var(--pallete-third);
     border-radius: 2px;
 }
 
@@ -338,7 +348,7 @@ textarea {
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: var(--pallete-green);
+    background: var(--pallete-third);
     border-radius: 2px;
 }
 
@@ -366,7 +376,7 @@ button.btn,
     padding: 0.78rem 1.65rem;
     border: 1px solid transparent;
     border-radius: 999px;
-    background-color: var(--pallete-portfolio-first);
+    background-color: var(--pallete-fisrt);
     color: #fff;
     font-family: var(--main-font);
     font-size: 0.95rem;
@@ -376,7 +386,7 @@ button.btn,
     text-align: center;
     text-transform: none;
     cursor: pointer;
-    box-shadow: 0 12px 26px -18px rgba(71, 45, 101, 0.7);
+    box-shadow: 0 12px 26px -18px rgba(114, 59, 90, 0.7);
     transition: transform var(--tb-transition), box-shadow var(--tb-transition), background-color var(--tb-transition), color var(--tb-transition),
         border-color var(--tb-transition);
 }
@@ -384,66 +394,66 @@ button.btn,
 button.btn:hover,
 .tb-btn:hover {
     color: #fff;
-    background-color: var(--pallete-violet-dark);
+    background-color: var(--pallete-fisrt);
     filter: none;
     transform: translateY(-2px);
-    box-shadow: 0 18px 32px -16px rgba(71, 45, 101, 0.65);
+    box-shadow: 0 18px 32px -16px rgba(114, 59, 90, 0.65);
 }
 
 button.btn:active,
 button.btn:focus-visible,
 .tb-btn:active {
     color: #fff !important;
-    background-color: var(--pallete-violet-dark) !important;
+    background-color: var(--pallete-fisrt) !important;
     filter: none;
 }
 
 button.btn.btn-green {
-    background-color: var(--pallete-green);
-    color: var(--tb-ink);
+    background-color: var(--pallete-third);
+    color: var(--pallete-fourth);
 }
 
 button.btn.btn-green:hover {
-    background-color: #7cb63c;
-    color: var(--tb-ink);
+    background-color: #334535;
+    color: var(--pallete-fourth);
 }
 
 button.btn-pink {
-    background-color: var(--pallete-pink);
-    color: var(--pallete-portfolio-first);
+    background-color: var(--pallete-second);
+    color: var(--pallete-fisrt);
 }
 
 .tb-btn--ghost {
     background: transparent;
-    color: var(--pallete-portfolio-first);
-    border-color: rgba(73, 49, 101, 0.32);
+    color: var(--pallete-fisrt);
+    border-color: rgba(114, 59, 90, 0.32);
     box-shadow: none;
 }
 
 .tb-btn--ghost:hover {
-    background: var(--pallete-portfolio-second);
-    color: var(--pallete-portfolio-first);
+    background: var(--pallete-second);
+    color: var(--pallete-fisrt);
 }
 
 .tb-btn--light {
     background: #fff;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     box-shadow: var(--tb-shadow-soft);
 }
 
 .tb-btn--light:hover {
     background: #fff;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
 }
 
 .tb-btn--green {
-    background: var(--pallete-green);
-    color: var(--tb-ink);
+    background: var(--pallete-third);
+    color: var(--pallete-fourth);
 }
 
 .tb-btn--green:hover {
-    background: #7cb63c;
-    color: var(--tb-ink);
+    background: #334535;
+    color: var(--pallete-fourth);
 }
 
 .tb-btn--whatsapp {
@@ -532,7 +542,7 @@ button.btn-pink {
     z-index: 2000;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--pallete-green), var(--pallete-pink), var(--pallete-violet));
+    background: linear-gradient(90deg, var(--pallete-third), var(--pallete-second), var(--pallete-fisrt));
     transform-origin: 0 50%;
     transform: scaleX(0);
     pointer-events: none;
@@ -568,7 +578,7 @@ button.btn-pink {
     right: calc(100% + 12px);
     padding: 8px 14px;
     border-radius: 10px;
-    background: var(--pallete-portfolio-first);
+    background: var(--pallete-fisrt);
     color: #fff;
     font-family: var(--main-font);
     font-size: 0.78rem;
@@ -587,23 +597,23 @@ button.btn-pink {
 
 .green-underline {
     text-decoration: underline;
-    text-decoration-color: var(--pallete-green);
+    text-decoration-color: var(--pallete-third);
     text-decoration-thickness: 3px;
     text-underline-offset: 3px;
 }
 
 .dark-violet {
-    color: var(--pallete-violet-dark);
+    color: var(--pallete-fisrt);
 }
 
 .shadow-custom {
     border-radius: 24px;
     margin-right: 30px;
-    box-shadow: 20px 20px 0px 5px var(--pallete-violet-dark) !important;
+    box-shadow: 20px 20px 0px 5px var(--pallete-fisrt) !important;
 }
 
 .pink-background {
-    background-color: var(--pallete-portfolio-second);
+    background-color: var(--pallete-second);
 }
 
 .white-background {
@@ -629,7 +639,7 @@ button.btn-pink {
    Componentes legados (campanha e contato)
    --------------------------------------------------------- */
 section.aboutMe {
-    background-color: var(--pallete-portfolio-second);
+    background-color: var(--pallete-second);
     padding: 48px 0.5rem;
     margin: 3rem 0;
     z-index: 1;
@@ -646,7 +656,7 @@ section.aboutMe div.image-container {
 }
 
 section.aboutMe div img {
-    box-shadow: 24px 24px var(--pallete-violet-dark);
+    box-shadow: 24px 24px var(--pallete-fisrt);
 }
 
 section.aboutMe div .aboutMeText {
@@ -706,8 +716,7 @@ section.aboutMe div .aboutMeText {
         font-size: 2rem !important;
     }
 
-    section.aboutMe div .aboutMeText p,
-    section.acompanhamentoNutricional p {
+    section.aboutMe div .aboutMeText p {
         font-size: 1.1rem !important;
         text-align: center;
     }

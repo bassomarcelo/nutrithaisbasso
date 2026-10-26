@@ -5,7 +5,6 @@ import CtaBanner from "../components/common/CtaBanner";
 import Faq from "../components/common/Faq";
 import AboutPreview from "../components/home/AboutPreview";
 import Hero from "../components/home/Hero";
-import MainProduct from "../components/home/MainProduct";
 import MethodSummary from "../components/home/MethodSummary";
 import OtherWays from "../components/home/OtherWays";
 import Promise from "../components/home/Promise";
@@ -18,7 +17,6 @@ export default function Home() {
             <Hero />
             <Promise />
             <MethodSummary />
-            <MainProduct />
             <OtherWays />
             <Testimonials />
             <AboutPreview />
@@ -31,7 +29,7 @@ export default function Home() {
             >
                 <a
                     className="tb-btn tb-btn--green"
-                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o acompanhamento nutricional.")}
+                    href={whatsappLink("Olá, Thaís! Quero conversar sobre o atendimento nutricional.")}
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -51,6 +49,6 @@ export const Head = () => (
     <Seo
         path="/"
         title="Thaís Basso | Nutricionista Comportamental"
-        description="Acompanhamento nutricional comportamental para hábitos reais. Saúde sem dieta, sem culpa e sem perfeição, presencial em Carlos Barbosa/RS e online."
+        description="Nutrição comportamental individual para hábitos reais. Saúde sem dieta, sem culpa e sem perfeição, presencial em Carlos Barbosa/RS e online."
     />
 );

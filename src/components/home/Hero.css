@@ -3,8 +3,8 @@
     overflow: hidden;
     padding: clamp(36px, 6vw, 76px) 0 0;
     background:
-        radial-gradient(circle at 10% 12%, rgba(234, 133, 191, 0.18), transparent 34%),
-        radial-gradient(circle at 90% 30%, rgba(139, 199, 75, 0.18), transparent 32%),
+        radial-gradient(circle at 10% 12%, rgba(222, 208, 231, 0.18), transparent 34%),
+        radial-gradient(circle at 90% 30%, rgba(64, 82, 66, 0.18), transparent 32%),
         linear-gradient(180deg, #f7f1fa 0%, var(--tb-cream) 78%);
 }
 
@@ -28,9 +28,12 @@
 }
 
 .tb-hero-title-top {
-    display: block;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: fit-content;
     margin-bottom: 16px;
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: clamp(0.78rem, 1.1vw, 0.9rem);
     font-weight: 500;
@@ -39,17 +42,26 @@
     text-transform: uppercase;
 }
 
+.tb-hero-title-top::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--pallete-third);
+    border-radius: 2px;
+}
+
 .tb-hero-title em {
     position: relative;
-    background-image: linear-gradient(transparent 74%, rgba(139, 199, 75, 0.7) 74%);
-    color: var(--pallete-violet);
+    background-image: linear-gradient(transparent 74%, rgba(64, 82, 66, 0.7) 74%);
+    color: var(--pallete-fisrt);
     font-style: normal;
     white-space: nowrap;
 }
 
 .tb-hero-subtitle {
     margin-bottom: 18px;
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: clamp(1.1rem, 1.8vw, 1.4rem);
     font-weight: 300;
@@ -92,7 +104,7 @@
 }
 
 .tb-hero-trust i {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-size: 0.78rem;
 }
 
@@ -109,7 +121,7 @@
     overflow: hidden;
     border-radius: 46% 54% 44% 56% / 40% 38% 62% 60%;
     aspect-ratio: 4 / 4.55;
-    background: var(--pallete-portfolio-second);
+    background: var(--pallete-second);
     box-shadow: var(--tb-shadow);
 }
 
@@ -126,9 +138,9 @@
     right: -24px;
     width: 74%;
     height: 74%;
-    border: 2px dashed rgba(173, 49, 115, 0.35);
+    border: 2px dashed rgba(114, 59, 90, 0.35);
     border-radius: 50%;
-    animation: spin-slow 40s linear infinite;
+    animation: spin-slow var(--animation-default-duration) linear infinite;
 }
 
 @keyframes spin-slow {
@@ -146,7 +158,7 @@
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.93);
-    color: var(--pallete-portfolio-first);
+    color: var(--pallete-fisrt);
     box-shadow: var(--tb-shadow-soft);
     backdrop-filter: blur(10px);
     animation: float-soft 6s ease-in-out infinite;
@@ -171,7 +183,7 @@
     width: 40px;
     height: 40px;
     border-radius: 14px;
-    background: rgba(139, 199, 75, 0.2);
+    background: rgba(64, 82, 66, 0.2);
     color: #4f7d1f;
     font-size: 0.95rem;
 }
@@ -188,7 +200,7 @@
 }
 
 .tb-hero-card--numbers strong {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
     font-family: var(--titles-font);
     font-size: 2.1rem;
     font-weight: 400;
@@ -206,7 +218,7 @@
 }
 
 .tb-hero-card--online i {
-    color: var(--pallete-violet);
+    color: var(--pallete-fisrt);
 }
 
 .tb-hero-blob {
@@ -229,7 +241,7 @@
     left: -110px;
     width: 260px;
     height: 260px;
-    background: rgba(139, 199, 75, 0.12);
+    background: rgba(64, 82, 66, 0.12);
     animation: float-soft 12s ease-in-out infinite reverse;
 }
 
@@ -243,7 +255,7 @@
     font-size: clamp(14rem, 32vw, 30rem);
     line-height: 0.7;
     text-transform: uppercase;
-    -webkit-text-stroke: 1px rgba(73, 49, 101, 0.06);
+    -webkit-text-stroke: 1px rgba(114, 59, 90, 0.06);
     transform: translateX(-50%);
     user-select: none;
     pointer-events: none;
@@ -254,21 +266,31 @@
     position: relative;
     overflow: hidden;
     padding: 14px 0;
-    border-top: 1px solid rgba(71, 45, 101, 0.1);
-    border-bottom: 1px solid rgba(71, 45, 101, 0.1);
+    border-top: 1px solid rgba(114, 59, 90, 0.1);
+    border-bottom: 1px solid rgba(114, 59, 90, 0.1);
     background: rgba(255, 255, 255, 0.55);
 }
 
 .tb-hero-marquee-track {
     display: flex;
-    gap: 28px;
     align-items: center;
     width: max-content;
-    animation: marquee 34s linear infinite;
+    animation: marquee var(--animation-default-duration) linear infinite;
+    will-change: transform;
 }
 
-.tb-hero-marquee-track span {
-    color: var(--pallete-portfolio-first);
+/* Dois grupos idênticos: o track anda -50% e o segundo grupo entra
+   continuando exatamente onde o primeiro terminou (loop sem emenda). */
+.tb-hero-marquee-group {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 28px;
+    align-items: center;
+    padding-right: 28px;
+}
+
+.tb-hero-marquee span {
+    color: var(--pallete-fisrt);
     font-family: var(--second-font);
     font-size: 0.82rem;
     font-weight: 400;
@@ -277,8 +299,8 @@
     white-space: nowrap;
 }
 
-.tb-hero-marquee-track i {
-    color: var(--pallete-green);
+.tb-hero-marquee i {
+    color: var(--pallete-third);
     font-size: 0.38rem;
 }
 
